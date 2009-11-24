@@ -1,0 +1,2 @@
+Modifies the way Rails generates the attribute value getters / setters so that the correct decimal separator is used when a 
+value is shown in a text_field and when the value entered by the user is parsed.

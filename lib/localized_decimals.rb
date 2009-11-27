@@ -57,8 +57,8 @@ module LocalizedDecimals
         
         casted_value = value( object, method_name )
         
-        if [ Float, BigDecimal ].include?( casted_value.class ) && casted_value.to_s == raw_value
-          raw_value = raw_value.tr( '.', I18n.t(:'number.format.separator'))
+        if [ Float, BigDecimal ].include?( casted_value.class ) && casted_value.to_s == raw_value.to_s
+          raw_value = raw_value.to_s.tr( '.', I18n.t(:'number.format.separator'))
         end
         
         return raw_value
@@ -68,5 +68,5 @@ module LocalizedDecimals
 end
 
 
-ActiveRecord::Base.send( :include, CustomNumberFormat::ActiveRecord )
-ActionView::Helpers::InstanceTag.send( :include, CustomNumberFormat::InstanceTag )
+ActiveRecord::Base.send( :include, LocalizedDecimals::ActiveRecord )
+ActionView::Helpers::InstanceTag.send( :include, LocalizedDecimals::InstanceTag )

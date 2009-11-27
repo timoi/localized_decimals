@@ -1,1 +1,1 @@
-require File.join(File.dirname(__FILE__), "lib", "localized_date")
+require File.join(File.dirname(__FILE__), "lib", "localized_decimals")
